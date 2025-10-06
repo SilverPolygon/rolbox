@@ -1,11 +1,11 @@
--- Example: simple character speed changer made by you, not from the web
--- Place this in a LocalScript inside StarterPlayerScripts
+print("Hello from client!")
 
-local Players = game:GetService("Players")
+-- Example: player-side visual effect
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+local humanoid = char:WaitForChild("Humanoid")
 
-local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-
--- set a new walk speed you choose
-humanoid.WalkSpeed = 32  -- default is 16
+-- A temporary 2x speed boost
+humanoid.WalkSpeed = 32
+task.wait(5)
+humanoid.WalkSpeed = 16
